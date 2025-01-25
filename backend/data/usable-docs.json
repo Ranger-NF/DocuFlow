@@ -1,0 +1,21 @@
+{
+  "poi": [
+    "passport",
+    "voter id",
+    "pan card",
+    "driving license",
+    "ration card",
+    "govt-issued id card",
+    "birth certificate"
+  ],
+  "poa": [
+    "utility bills",
+    "passbook",
+    "passport",
+    "rent agreement",
+    "voter id",
+    "driving license",
+    "tax receipt"
+  ],
+  "podob": ["birth certificate", "passport", "sslc"]
+}

@@ -1,0 +1,24 @@
+{
+  "aadhar": {
+    "proof of identity": [
+      "passport",
+      "voter id",
+      "pan card",
+      "driving license",
+      "ration card",
+      "govt-issued id card",
+      "birth certificate"
+    ],
+    "proof of address": [
+      "utility bills",
+      "passbook",
+      "passport",
+      "rent agreement",
+      "voter id",
+      "driving license",
+      "tax receipt"
+    ],
+    "proof of date of birth": ["birth certificate", "passport", "sslc"]
+  },
+  "pan": []
+}
