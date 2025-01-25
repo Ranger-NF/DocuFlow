@@ -36,7 +36,7 @@ export default function Home() {
         {/* <TiZoomOutline className="absolute mx-4 my-2 w-6 h-6 " /> */}
         <input
           type="text"
-          placeholder="      Search for documents..."
+          placeholder="Search for documents..."
           className="w-full rounded-full px-4 py-2 border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
@@ -55,9 +55,11 @@ export default function Home() {
               >
                 <div className="w-16 h-16 rounded mb-2 flex items-center justify-center">
                   {/* Icon Placeholder */}
-                  <img src={docItem.img} />
+                  <img className="pt-6" src={docItem.img} />
                 </div>
-                <p className="text-sm font-medium text-black">{docItem.name}</p>
+                <p className="text-sm font-medium text-black pb-6">
+                  {docItem.name}
+                </p>
               </a>
             );
           })}
@@ -79,7 +81,7 @@ export default function Home() {
                 key={item.key}
               >
                 <div className="flex items-center gap-4">
-                  <div className="bg-green-500 w-12 h-12 rounded flex items-center justify-center">
+                  <div className="bg-green-500 w-12 h-12 rounded-lg flex items-center justify-center">
                     <span className="text-white text-2xl">{item.icon}</span>
                   </div>
                   <div>
