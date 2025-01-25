@@ -3,9 +3,9 @@ import { FiUsers, FiCreditCard, FiTruck } from "react-icons/fi";
 
 export default function Home() {
   const popularDocs = [
-    { name: "Aadhaar", img: "/aadhaar.svg" },
-    { name: "PAN Card", img: "/utiitsl.png" },
-    { name: "Voter ID", img: "/eci.svg" },
+    { name: "Aadhaar", img: "/aadhaar.svg", doc: "aadhaar" },
+    { name: "PAN Card", img: "/utiitsl.png", doc: "pan card" },
+    { name: "Voter ID", img: "/eci.svg", doc: "voter id" },
   ];
 
   const categoryItems = [
@@ -50,7 +50,7 @@ export default function Home() {
           {popularDocs.map((docItem, index) => {
             return (
               <a
-                href="/document"
+                href={"/document/?doc=" + docItem.doc}
                 className="min-w-[120px] bg-primary rounded-lg shadow-lg flex flex-col items-center"
               >
                 <div className="w-16 h-16 rounded mb-2 flex items-center justify-center">

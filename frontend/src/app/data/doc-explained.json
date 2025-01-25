@@ -1,0 +1,21 @@
+{
+  "Proof of Identity": [
+    "passport",
+    "voter id",
+    "pan card",
+    "driving license",
+    "ration card",
+    "govt-issued id card",
+    "birth certificate"
+  ],
+  "Proof of Address": [
+    "utility bills",
+    "passbook",
+    "passport",
+    "rent agreement",
+    "voter id",
+    "driving license",
+    "tax receipt"
+  ],
+  "Proof of Date of Birth": ["birth certificate", "passport", "sslc"]
+}
