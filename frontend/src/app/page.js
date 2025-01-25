@@ -70,7 +70,10 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex items-center justify-between bg-primary p-4 rounded-lg shadow-md">
+          <a
+            href="/list"
+            className="flex items-center justify-between bg-primary p-4 rounded-lg shadow-md"
+          >
             <div className="flex items-center gap-4">
               <div className="bg-gray-200 w-12 h-12 rounded flex items-center justify-center">
                 <span className="text-gray-500 text-2xl">🖼️</span>
@@ -81,7 +84,7 @@ export default function Home() {
               </div>
             </div>
             <span className="text-gray-500 text-2xl">➡️</span>
-          </div>
+          </a>
 
           <div className="flex items-center justify-between bg-primary p-4 rounded-lg shadow-md">
             <div className="flex items-center gap-4">
