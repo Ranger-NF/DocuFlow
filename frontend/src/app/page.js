@@ -30,7 +30,7 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen bg-gray-100 p-6">
+    <main className=" min-h-screen p-6">
       {/* Search Bar */}
       <div className="mb-6 text-gray-300">
         {/* <TiZoomOutline className="absolute mx-4 my-2 w-6 h-6 " /> */}
@@ -54,7 +54,6 @@ export default function Home() {
                 className="min-w-[120px] bg-primary rounded-lg shadow-lg flex flex-col items-center"
               >
                 <div className="w-16 h-16 rounded mb-2 flex items-center justify-center">
-                  {/* Icon Placeholder */}
                   <img className="pt-6" src={docItem.img} />
                 </div>
                 <p className="text-sm font-medium text-black pb-6">
@@ -90,7 +89,6 @@ export default function Home() {
                   </div>
                 </div>
                 <TiChevronRight className="w-8 h-8 text-green-500" />
-                {/* <span className="text-gray-500 text-2xl"></span> */}
               </a>
             );
           })}

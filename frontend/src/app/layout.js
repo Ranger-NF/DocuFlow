@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <div
-          className="bg-cover bg-center"
+          className="grid justify-center bg-cover bg-center"
           style={{ backgroundImage: `url(/bg-shapes.svg)` }}
         >
           {children}

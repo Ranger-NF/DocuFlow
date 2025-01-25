@@ -26,7 +26,7 @@ const docExplanation = {
 
 export default function DocDetails({ docName, docsNeeded, refLink }) {
   return (
-    <div className="container mx-auto p-10 bg-white ">
+    <main className="container mx-auto p-10 bg-white ">
       <a href="/">
         <TiArrowLeftThick className="w-8 h-8 align-middle" />
       </a>
@@ -78,6 +78,6 @@ export default function DocDetails({ docName, docsNeeded, refLink }) {
           }
         })}
       </div>
-    </div>
+    </main>
   );
 }
