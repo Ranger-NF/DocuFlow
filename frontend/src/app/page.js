@@ -3,9 +3,9 @@ import { FiUsers, FiCreditCard, FiTruck } from "react-icons/fi";
 
 export default function Home() {
   const popularDocs = [
-    { name: "Aadhaar", img: "/aadhaar.svg", doc: "aadhaar" },
-    { name: "PAN Card", img: "/utiitsl.png", doc: "pan card" },
-    { name: "Voter ID", img: "/eci.svg", doc: "voter id" },
+    { name: "Aadhaar", img: "/aadhaar.svg", doc: "Aadhaar" },
+    { name: "PAN Card", img: "/utiitsl.png", doc: "Pan Card" },
+    { name: "Voter ID", img: "/eci.svg", doc: "Voter ID" },
   ];
 
   const categoryItems = [
