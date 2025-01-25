@@ -1,40 +1,50 @@
+// import fs from "fs";
 import express from "express";
+import bodyParser from "body-parser";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
+// let explainedDocs;
+// fs.readFile("./data/doc-explained.json", function (err, data) {
+//   if (err) throw err;
+//   explainedDocs = JSON.parse(data);
+// });
 const app = express();
 const port = 3000;
 
-const genAi = new GoogleGenerativeAI(process.env.API_KEY);
-const savedDocInfo = {};
+const genAi = new GoogleGenerativeAI(process.env.GAPI_KEY);
+const model = genAi.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 async function getDocRequirements(docInNeed) {
-  const prompt = `What are the required documents needed inorder to apply for ${docInNeed}, return the result as an array json with key as: 'docs' - without any explanation with it`;
-  const result = await genAi.generateContent(prompt);
-  const response = await result.reponse;
-  console.log(response);
+  const prompt = `What are all the required supporting documents needed inorder to apply for ${docInNeed}, return the result as an array json with key as: 'docs' - without any explanation with it (Please remove json code block format. Also add reference to official authority (consider state as Kerala) site with 'reference' as key`;
+  const result = await model.generateContent(prompt);
+  const response = result.response.text();
+  const trimmedResult = response.replace(/```json|```/g, "").trim();
+
+  let parsedResult;
+  try {
+    parsedResult = JSON.parse(trimmedResult);
+    return parsedResult;
+  } catch (error) {
+    console.error("Error parsing JSON:", error);
+  }
 }
 
-app.get("/usable-docs", (req, res) => {
-  const docs = req.body;
-  if (docs) {
-    const prompt = `what is the short form of ${docs} in small letters (give me one work answer) `;
-  }
-
-  res.send("Hello World!");
-});
+app.use(bodyParser.text());
 
 app.get("/", async (req, res) => {
   const requiredDoc = req.body;
 
   if (requiredDoc) {
-    if (savedDocInfo.hasOwnProperty(requiredDoc.toLowerCase())) {
-      res.send(savedDocInfo[requiredDoc]);
-    } else {
-      res.send("No data");
-    }
+    const response = await getDocRequirements(requiredDoc);
+
+    // for (let doc in response.docs) {
+    //   if (explainedDocs[response.docs[doc]]) {
+    //     response.docs[doc] = explainedDocs[response.docs[doc]];
+    //   }
+    // }
+    res.json(response);
   } else {
-    response = await getDocRequirements();
-    res.send(response);
+    res.send("Please provide a document name");
   }
 });
 

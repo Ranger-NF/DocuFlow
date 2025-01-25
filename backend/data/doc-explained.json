@@ -1,5 +1,5 @@
 {
-  "poi": [
+  "Proof of Identity": [
     "passport",
     "voter id",
     "pan card",
@@ -8,7 +8,7 @@
     "govt-issued id card",
     "birth certificate"
   ],
-  "poa": [
+  "Proof of Address": [
     "utility bills",
     "passbook",
     "passport",
@@ -17,5 +17,5 @@
     "driving license",
     "tax receipt"
   ],
-  "podob": ["birth certificate", "passport", "sslc"]
+  "Proof of Date of Birth": ["birth certificate", "passport", "sslc"]
 }
