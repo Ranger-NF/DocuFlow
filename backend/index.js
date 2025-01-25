@@ -1,9 +1,18 @@
 import express from "express";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const app = express();
 const port = 3000;
 
+const genAi = new GoogleGenerativeAI(process.env.API_KEY);
 const savedDocInfo = {};
+
+async function getDocRequirements(docInNeed) {
+  const prompt = `What are the required documents needed inorder to apply for ${docInNeed}, return the result as an array json with key as: 'docs' - without any explanation with it`;
+  const result = await genAi.generateContent(prompt);
+  const response = await result.reponse;
+  console.log(response);
+}
 
 app.get("/usable-docs", (req, res) => {
   const docs = req.body;
@@ -14,7 +23,7 @@ app.get("/usable-docs", (req, res) => {
   res.send("Hello World!");
 });
 
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
   const requiredDoc = req.body;
 
   if (requiredDoc) {
@@ -24,7 +33,8 @@ app.get("/", (req, res) => {
       res.send("No data");
     }
   } else {
-    res.send("Please provide a document type");
+    response = await getDocRequirements();
+    res.send(response);
   }
 });
 
