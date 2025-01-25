@@ -1,4 +1,24 @@
 export default function Home() {
+  const popularDocs = ["Aadhar", "PAN Card", "Voter ID"];
+
+  const categoryItems = [
+    {
+      key: "gov",
+      title: "Government IDs",
+      subtitle: "Adhaar, Ration Card, etc.",
+    },
+    {
+      key: "finance",
+      title: "Financial Documents",
+      subtitle: "PAN Card, Loan application, etc.",
+    },
+    {
+      key: "vehicle",
+      title: "Vehicle Documents",
+      subtitle: "RC, PUCC, etc.",
+    },
+  ];
+
   return (
     <main className="min-h-screen bg-gray-100 p-6">
       {/* Search Bar */}
@@ -17,34 +37,20 @@ export default function Home() {
         </h2>
         <div className="flex gap-4 overflow-x-scroll scrollbar-hide">
           {/* Card Example */}
-          <a
-            href="/document"
-            className="min-w-[120px] bg-primary p-4 rounded-lg shadow-md flex flex-col items-center"
-          >
-            <div className="bg-gray-200 w-16 h-16 rounded mb-2 flex items-center justify-center">
-              {/* Icon Placeholder */}
-              <span className="text-gray-500 text-2xl">🖼️</span>
-            </div>
-            <p className="text-sm font-medium text-black">Adhaar</p>
-          </a>
-          <div className="min-w-[120px] bg-primary p-4 rounded-lg shadow-md flex flex-col items-center">
-            <div className="bg-gray-200 w-16 h-16 rounded mb-2 flex items-center justify-center">
-              <span className="text-gray-500 text-2xl">🖼️</span>
-            </div>
-            <p className="text-sm font-medium text-black">PAN Card</p>
-          </div>
-          <div className="min-w-[120px] bg-primary p-4 rounded-lg shadow-md flex flex-col items-center">
-            <div className="bg-gray-200 w-16 h-16 rounded mb-2 flex items-center justify-center">
-              <span className="text-gray-500 text-2xl">🖼️</span>
-            </div>
-            <p className="text-sm font-medium text-black">Voter ID</p>
-          </div>
-          <div className="min-w-[120px] bg-primary p-4 rounded-lg shadow-md flex flex-col items-center">
-            <div className="bg-gray-200 w-16 h-16 rounded mb-2 flex items-center justify-center">
-              <span className="text-gray-500 text-2xl">🖼️</span>
-            </div>
-            <p className="text-sm font-medium text-black">PASSPORT</p>
-          </div>
+          {popularDocs.map((docName, index) => {
+            return (
+              <a
+                href="/document"
+                className="min-w-[120px] bg-primary p-4 rounded-lg shadow-md flex flex-col items-center"
+              >
+                <div className="bg-gray-200 w-16 h-16 rounded mb-2 flex items-center justify-center">
+                  {/* Icon Placeholder */}
+                  <span className="text-gray-500 text-2xl">🖼️</span>
+                </div>
+                <p className="text-sm font-medium text-black">{docName}</p>
+              </a>
+            );
+          })}
         </div>
       </section>
 
@@ -55,49 +61,26 @@ export default function Home() {
         </h2>
         <br></br>
         <div className="space-y-4">
-          {/* Category Item */}
-          <div className="flex items-center justify-between bg-primary p-4 rounded-lg shadow-md">
-            <div className="flex items-center gap-4">
-              <div className="bg-gray-200 w-12 h-12 rounded flex items-center justify-center">
-                <span className="text-gray-500 text-2xl">🖼️</span>
-              </div>
-              <div>
-                <p className="font-medium text-black">Government IDs</p>
-                <p className="text-sm text-gray-500">
-                  Adhaar, Ration Card, etc.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <a
-            href="/list"
-            className="flex items-center justify-between bg-primary p-4 rounded-lg shadow-md"
-          >
-            <div className="flex items-center gap-4">
-              <div className="bg-gray-200 w-12 h-12 rounded flex items-center justify-center">
-                <span className="text-gray-500 text-2xl">🖼️</span>
-              </div>
-              <div>
-                <p className="font-medium text-black">Financial</p>
-                <p className="text-sm text-gray-500">Bank Statements, etc.</p>
-              </div>
-            </div>
-            <span className="text-gray-500 text-2xl">➡️</span>
-          </a>
-
-          <div className="flex items-center justify-between bg-primary p-4 rounded-lg shadow-md">
-            <div className="flex items-center gap-4">
-              <div className="bg-gray-200 w-12 h-12 rounded flex items-center justify-center">
-                <span className="text-gray-500 text-2xl">🖼️</span>
-              </div>
-              <div>
-                <p className="font-medium text-black">Vehicle</p>
-                <p className="text-sm text-gray-500">RC, PUCC, etc.</p>
-              </div>
-            </div>
-            <span className="text-gray-500 text-2xl">➡️</span>
-          </div>
+          {categoryItems.map((item, index) => {
+            return (
+              <a
+                href="/list"
+                className="flex items-center justify-between bg-primary p-4 rounded-lg shadow-md"
+                key={item.key}
+              >
+                <div className="flex items-center gap-4">
+                  <div className="bg-gray-200 w-12 h-12 rounded flex items-center justify-center">
+                    <span className="text-gray-500 text-2xl">🖼️</span>
+                  </div>
+                  <div>
+                    <p className="font-medium text-black">{item.title}</p>
+                    <p className="text-sm text-gray-500">{item.subtitle}</p>
+                  </div>
+                </div>
+                <span className="text-gray-500 text-2xl">➡️</span>
+              </a>
+            );
+          })}
         </div>
       </section>
     </main>
