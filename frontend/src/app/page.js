@@ -18,7 +18,7 @@ export default function Home() {
         <div className="flex gap-4 overflow-x-scroll scrollbar-hide">
           {/* Card Example */}
           <a
-            href="/document/doc_detail"
+            href="/document"
             className="min-w-[120px] bg-primary p-4 rounded-lg shadow-md flex flex-col items-center"
           >
             <div className="bg-gray-200 w-16 h-16 rounded mb-2 flex items-center justify-center">
