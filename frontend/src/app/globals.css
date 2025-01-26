@@ -5,6 +5,8 @@
 :root {
     --background: #ffffff;
     --foreground: #171717;
+    --gap: 24px;
+    --main-width: 720px;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -13,7 +15,9 @@
     --foreground: #ededed;
   }
 } */
-
+main {
+    max-width: calc(var(--main-width) + var(--gap) * 2);
+}
 body {
     color: var(--foreground);
     background: var(--background);
