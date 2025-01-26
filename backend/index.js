@@ -15,7 +15,7 @@ const genAi = new GoogleGenerativeAI(process.env.GAPI_KEY);
 const model = genAi.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 async function getDocRequirements(docInNeed) {
-  const prompt = `What are all the required supporting documents needed inorder to apply for ${docInNeed}, return the result as an array json with key as: 'docs' - without any explanation with it (Please remove json code block format. Also add reference to official authority (consider state as Kerala) site with 'reference' as key`;
+  const prompt = `What are all the required supporting documents needed inorder to apply for ${docInNeed}, return the result as an array json with key as: 'docs' - without any explanation with it (Please remove json code block format. Also add reference to official authority (consider state as Kerala) site with 'reference' as key, just append the documents as string to docs array`;
   const result = await model.generateContent(prompt);
   const response = result.response.text();
   const trimmedResult = response.replace(/```json|```/g, "").trim();
@@ -40,7 +40,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/", async (req, res) => {
+app.post("/", async (req, res) => {
   const requiredDoc = req.body;
 
   if (requiredDoc) {

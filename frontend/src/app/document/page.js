@@ -8,8 +8,15 @@ import HashLoader from "react-spinners/HashLoader";
 
 import { useSearchParams } from "next/navigation";
 
-const fetcher = (url, doc) =>
-  axios.get(url, { params: { doc } }).then((res) => res.data);
+const fetcher = (serverUrl, doc) =>
+  axios({
+    method: "POST",
+    url: serverUrl, // Append query parameter dynamically
+    headers: {
+      "Content-Type": "text/plain",
+    },
+    data: doc,
+  }).then((res) => res.data);
 
 const override = {
   positon: "absolute",
@@ -22,8 +29,8 @@ export default function document() {
   const doc = searchParams.get("doc");
 
   const { data, error, isLoading } = useSWR(
-    "https://docuflow-seven.vercel.app/",
-    (url, doc) => fetcher(url, doc),
+    doc ? ["https://docuflow-seven.vercel.app/", doc] : null, // Ensure `doc` exists before fetching
+    ([url, doc]) => fetcher(url, doc),
   );
 
   if (error) return <div>failed to load</div>;
