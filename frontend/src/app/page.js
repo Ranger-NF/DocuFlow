@@ -75,7 +75,7 @@ export default function Home() {
           {categoryItems.map((item, index) => {
             return (
               <a
-                href="/list"
+                href={"/list?category=" + item.key}
                 className="flex items-center justify-between bg-primary p-4 rounded-lg shadow-lg"
                 key={item.key}
               >

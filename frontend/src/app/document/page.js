@@ -19,7 +19,7 @@ const override = {
 
 export default function document() {
   const searchParams = useSearchParams();
-  const doc = searchParams.get("doc"); // Retrieve the "doc" query parameter
+  const doc = searchParams.get("doc");
 
   const { data, error, isLoading } = useSWR(
     "http://localhost:3001/",
