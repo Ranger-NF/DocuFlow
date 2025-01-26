@@ -1,7 +1,54 @@
+"use client";
+
 import React from "react";
 import { TiArrowLeftThick, TiChevronRight } from "react-icons/ti";
+import { useSearchParams } from "next/navigation";
+
+const categoryItems = {
+  gov: [
+    {
+      key: "Aadhaar",
+      title: "Aadhaar",
+    },
+    {
+      key: "Voter ID",
+      title: "Voter ID",
+    },
+    {
+      key: "Birth Certificate",
+      title: "Birth Certificate",
+    },
+  ],
+  finance: [
+    {
+      key: "PAN Card",
+      title: "PAN Card",
+    },
+    {
+      key: "Business License",
+      title: "Business License",
+    },
+    {
+      key: "Loan Application",
+      title: "Loan Application",
+    },
+  ],
+  vehicle: [
+    {
+      key: "Registration Card (RC)",
+      title: "Registration Card (RC)",
+    },
+    {
+      key: "Pollution Certificate (PUCC)",
+      title: "Pollution Certificate (PUCC)",
+    },
+  ],
+};
 
 function ListPage() {
+  const searchParams = useSearchParams();
+  const category = searchParams.get("category");
+
   return (
     <div>
       <div className="container mx-auto p-7">
@@ -15,15 +62,23 @@ function ListPage() {
             className="border justify-center rounded px-4 py-2 ml-2 w-full"
           />
         </div>
-        <div className="place-items-center p-4">
-          <button className="flex items-center justify-between bg-green-200 text-white rounded-[15] px-2 py-3">
-            <div className="flex items-center">
-              <span className="flex ml-2 text-lg font-semibold text-black">
-                Aadhar Card{" "}
+        <div className="space-y-4 mt-5">
+          {categoryItems[category].map((item, index) => {
+            return (
+              <a
+                href={"/document/?doc=" + item.title}
+                className="flex items-center justify-between bg-primary p-4 rounded-lg shadow-lg"
+                key={item.key}
+              >
+                <div className="flex items-center gap-4">
+                  <div>
+                    <p className="font-medium text-black">{item.title}</p>
+                  </div>
+                </div>
                 <TiChevronRight className="w-8 h-8 text-green-500" />
-              </span>
-            </div>
-          </button>
+              </a>
+            );
+          })}
         </div>
       </div>
     </div>

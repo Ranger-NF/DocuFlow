@@ -1,5 +1,7 @@
-import { TiChevronRight, TiZoomOutline } from "react-icons/ti";
+import { TiChevronRight } from "react-icons/ti";
 import { FiUsers, FiCreditCard, FiTruck } from "react-icons/fi";
+
+import SearchBar from "@/component/searchBar";
 
 export default function Home() {
   const popularDocs = [
@@ -34,11 +36,7 @@ export default function Home() {
       {/* Search Bar */}
       <div className="mb-6 text-gray-300">
         {/* <TiZoomOutline className="absolute mx-4 my-2 w-6 h-6 " /> */}
-        <input
-          type="text"
-          placeholder="Search for documents..."
-          className="w-full rounded-full px-4 py-2 border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
+        <SearchBar />
       </div>
 
       {/* Popular Documents */}
@@ -75,7 +73,7 @@ export default function Home() {
           {categoryItems.map((item, index) => {
             return (
               <a
-                href="/list"
+                href={"/list?category=" + item.key}
                 className="flex items-center justify-between bg-primary p-4 rounded-lg shadow-lg"
                 key={item.key}
               >
