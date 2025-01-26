@@ -31,6 +31,15 @@ async function getDocRequirements(docInNeed) {
 
 app.use(bodyParser.text());
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // Replace with the actual origin
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept",
+  );
+  next();
+});
+
 app.get("/", async (req, res) => {
   const requiredDoc = req.body;
 
