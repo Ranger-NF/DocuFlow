@@ -21,7 +21,7 @@ const SearchBar = () => {
         onChange={onChange}
         type="text"
         placeholder="Search for documents..."
-        className="border justify-center rounded-2xl px-4 py-2 ml-2 w-full text-black"
+        className="border border-[#1b5b44] justify-center rounded-2xl px-4 py-2 ml-2 w-full text-black"
       />
     </form>
   );

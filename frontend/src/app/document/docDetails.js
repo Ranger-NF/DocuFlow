@@ -25,6 +25,16 @@ const docExplanation = {
 };
 
 export default function DocDetails({ docName, docsNeeded, refLink }) {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const handleButtonClick = () => {
+    setIsPopupOpen(true);
+  };
+
+  const handleClosePopup = () => {
+    setIsPopupOpen(false);
+  };
+
   return (
     <main className="container mx-auto p-10 bg-white ">
       <a href="/">
