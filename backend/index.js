@@ -9,7 +9,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 //   explainedDocs = JSON.parse(data);
 // });
 const app = express();
-const port = 3001;
+const port = 3000;
 
 const genAi = new GoogleGenerativeAI(process.env.GAPI_KEY);
 const model = genAi.getGenerativeModel({ model: "gemini-1.5-flash" });

@@ -22,7 +22,7 @@ export default function document() {
   const doc = searchParams.get("doc");
 
   const { data, error, isLoading } = useSWR(
-    "http://localhost:3001/",
+    "https://docuflow-seven.vercel.app/",
     (url, doc) => fetcher(url, doc),
   );
 
