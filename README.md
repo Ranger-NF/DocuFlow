@@ -1,7 +1,7 @@
 <img width="1280" alt="readme-banner" src="docs/main-banner.jpg">
 ---
 <div align="center"></div>
-<img width="1280" alt="docuflow-logo" src="docs/logo.jpg">
+<img alt="docuflow-logo" src="docs/logo.svg">
 <div align="center">
 <strong>DocuFlow</strong>
 <p>[pronunciation: Doc-you-flow]</p>
