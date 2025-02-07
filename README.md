@@ -1,8 +1,8 @@
 <img width="1280" alt="readme-banner" src="docs/main-banner.jpg">
----
+<!-- ---
 <div align="center"></div>
 <img alt="docuflow-logo" src="docs/logo.svg">
-<div align="center">
+<div align="center"> -->
 <strong>DocuFlow</strong>
 <p>[pronunciation: Doc-you-flow]</p>
 </div>
