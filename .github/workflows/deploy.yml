@@ -1,0 +1,36 @@
+name: Deploy Frontend
+
+on:
+  push:
+    branches: [ main ]  # or your default branch
+    paths:
+      - 'frontend/**'   # Only trigger when frontend folder changes
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+
+      - name: Install Dependencies
+        working-directory: ./frontend
+        run: npm install
+
+      - name: Build Next.js App
+        working-directory: ./frontend
+        run: npm run build
+
+      - name: Export Static Files
+        working-directory: ./frontend
+        run: npm run export  # Only if you're using static export
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: frontend/out  # or frontend/.next for server-side rendering
+          branch: gh-pages

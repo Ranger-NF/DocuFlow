@@ -1,4 +1,11 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
-
-export default nextConfig;
+const nextConfig = {
+    output: 'export',
+    images: {
+      unoptimized: true
+    },
+    basePath: '/DocuFlow', 
+    assetPrefix: '/DocuFlow/',
+  }
+  
+  module.exports = nextConfig
