@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { Suspense } from "react";
 import { TiArrowLeftThick, TiChevronRight } from "react-icons/ti";
 import { useSearchParams } from "next/navigation";
 
@@ -63,22 +63,24 @@ function ListPage() {
           />
         </div>
         <div className="space-y-4 mt-5">
-          {categoryItems[category].map((item, index) => {
-            return (
-              <a
-                href={"/document/?doc=" + item.title}
-                className="flex items-center justify-between bg-primary p-4 rounded-lg shadow-lg"
-                key={item.key}
-              >
-                <div className="flex items-center gap-4">
-                  <div>
-                    <p className="font-medium text-black">{item.title}</p>
+          <Suspense fallback={<div>Loading</div>}>
+            {categoryItems[category].map((item, index) => {
+              return (
+                <a
+                  href={"/document/?doc=" + item.title}
+                  className="flex items-center justify-between bg-primary p-4 rounded-lg shadow-lg"
+                  key={item.key}
+                >
+                  <div className="flex items-center gap-4">
+                    <div>
+                      <p className="font-medium text-black">{item.title}</p>
+                    </div>
                   </div>
-                </div>
-                <TiChevronRight className="w-8 h-8 text-green-500" />
-              </a>
-            );
-          })}
+                  <TiChevronRight className="w-8 h-8 text-green-500" />
+                </a>
+              );
+            })}
+          </Suspense>
         </div>
       </div>
     </div>

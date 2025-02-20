@@ -8,4 +8,4 @@ const nextConfig = {
     assetPrefix: '/DocuFlow/',
   }
   
-  module.exports = nextConfig
+export default nextConfig;
