@@ -1,4 +1,3 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 export const metadata = {
@@ -12,7 +11,7 @@ export default function RootLayout({ children }) {
       <body>
         <div
           className="grid justify-center bg-cover bg-center h-screen"
-          style={{ backgroundImage: `url(/bg-shapes.svg)` }}
+          // style={{ backgroundImage: `url(/bg-shapes.svg)` }}
         >
           {children}
         </div>

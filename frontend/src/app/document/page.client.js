@@ -1,6 +1,6 @@
 "use client";
 
-import DocDetails from "@/app/document/docDetails";
+import DocDetails from "./docDetails";
 import axios from "axios";
 import useSWR from "swr";
 import HashLoader from "react-spinners/HashLoader";
@@ -21,11 +21,15 @@ const override = {
   left: "50%",
 };
 
-export default function DocumentPage() {
+function LoadingSpinner() {
   return (
-    <Suspense fallback={<LoadingSpinner />}>
-      <DocumentDetails />
-    </Suspense>
+    <HashLoader
+      className="absolute justify-center items-center top-1/2 left-1/2 h-screen w-screen"
+      cssOverride={override}
+      color="#22c55e"
+      loading={true}
+      size={100}
+    />
   );
 }
 
@@ -43,19 +47,19 @@ function DocumentDetails() {
 
   return (
     <div>
-      <DocDetails docName={doc} docsNeeded={data.docs} refLink={data.reference} />
+      <DocDetails
+        docName={doc}
+        docsNeeded={data.docs}
+        refLink={data.reference}
+      />
     </div>
   );
 }
 
-function LoadingSpinner() {
+export default function DocumentPage() {
   return (
-    <HashLoader
-      className="absolute justify-center items-center top-1/2 left-1/2 h-screen w-screen"
-      cssOverride={override}
-      color="#22c55e"
-      loading={true}
-      size={100}
-    />
+    <Suspense fallback={<LoadingSpinner />}>
+      <DocumentDetails />
+    </Suspense>
   );
 }
